@@ -4,10 +4,11 @@
 EAPI=8
 
 MY_PN="zhwiki-${PV}.dict"
+MY_PV="0.2.4"
 
 DESCRIPTION="Fcitx 5 Pinyin Dictionary from zh.wikipedia.org"
 HOMEPAGE="https://github.com/felixonmars/fcitx5-pinyin-zhwiki"
-SRC_URI="https://github.com/felixonmars/${PN}/releases/download/0.2.3/${MY_PN}"
+SRC_URI="https://github.com/felixonmars/${PN}/releases/download/${MY_PV}/${MY_PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
