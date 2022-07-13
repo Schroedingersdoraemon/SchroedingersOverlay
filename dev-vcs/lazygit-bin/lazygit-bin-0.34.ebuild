@@ -18,5 +18,5 @@ BDEPEND=""
 S="${WORKDIR}"
 
 src_install(){
-	dobin "${WORKDIR}"/${PN%-bin}
+	dobin ${PN%-bin}
 }
