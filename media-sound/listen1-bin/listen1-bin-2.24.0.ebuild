@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit unpacker desktop
+inherit unpacker desktop xdg
 
 DESCRIPTION=""
 HOMEPAGE=""
