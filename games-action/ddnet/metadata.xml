@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Schroedinger</name>
+		<email>dylanturing@protonmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="websockets">Enable WebSocket support for server.</flag>
+		<flag name="mysql">Enable MySQL/MariaDB support for server.</flag>
+		<flag name="autoupdate">Enable the autoupdater.</flag>
+		<flag name="inform-update">Inform about available updates.</flag>
+		<flag name="videorecorder">Add video recording support using FFmpeg to the client.</flag>
+		<flag name="antibot">Enable support for a dynamic anticheat library.</flag>
+		<flag name="headless-client">Build the client without graphics.</flag>
+		<flag name="upnp">Enable UPnP support for the server.</flag>
+		<flag name="client">Enable client compilation.</flag>
+		<flag name="server">Enable server compilation.</flag>
+		<flag name="tools">Enable tools compilation.</flag>
+		<flag name="download-gtest">Download and compile GTest. Useful if GTest is not installed and there is no suitable package providing it.</flag>
+		<flag name="steam">Build the Steam release version.</flag>
+		<flag name="discord">Enable Discord rich presence support.</flag>
+		<flag name="discord-dynamic">Enable discovering Discord rich presence libraries at runtime.</flag>
+		<flag name="prefer-bundled-libs">Prefer bundled libraries over system libraries.</flag>
+		<flag name="vulkan">Enable the vulkan backend.</flag>
+		<flag name="ninja">Use the Ninja build system instead of Make. This automatically parallizes the build and is generally faster.</flag>
+	</use>
+</pkgmetadata>
