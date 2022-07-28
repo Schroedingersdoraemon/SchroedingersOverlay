@@ -12,22 +12,48 @@ SRC_URI="https://ddnet.tw/downloads/${P}-linux_x86_64.tar.xz -> ${P}.tar.xz"
 LICENSE="CC-BY-SA-3.0"
 SLOT="0"
 KEYWORDS="amd64"
+RESTRICT="strip"
 
-DEPEND="
+RDEPEND="
+	dev-libs/glib
+	media-libs/freetype
+	media-libs/libglvnd
+	media-libs/libsdl2
 	media-libs/vulkan-loader
+	net-misc/curl
+	x11-libs/gdk-pixbuf
+	x11-libs/libnotify
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 S="${WORKDIR}"
 
-BASENAME="${P}-linux_x86_64"
+MY_PN="${P}-linux_x86_64"
+
+QA_PREBUILT="
+	${MY_PN}/config_retrieve
+	${MY_PN}/config_store
+	${MY_PN}/DDNet
+	${MY_PN}/DDNet-Server
+	${MY_PN}/dilate
+	${MY_PN}/map_convert_07
+	${MY_PN}/map_diff
+	${MY_PN}/map_extract
+"
 
 src_install(){
-	insinto "/opt"
-	doins -r "${BASENAME}"
-	make_desktop_entry "/opt/${BASENAME}/${PN}" ${PN} "/opt/${BASENAME}/data/gui_logo.png" "Game"
-	fperms 0755 /opt/${BASENAME}/{DDNet,DDNet-Server,config_retrieve,config_store,dilate,map_convert_07,map_diff,map_extract}
+	insinto /opt
+	doins -r ${MY_PN}
+
+	make_desktop_entry \
+		/opt/${MY_PN}/${PN} \   # exec
+		${PN} \   # name
+		/opt/${MY_PN}/data/gui_logo.png \   # icon
+		Game   # category
+
+	local f
+	for f in ${QA_PREBUILT}; do
+		fperms +x "/opt/${f}"
+	done
 }
 
 pkg_postinst(){
