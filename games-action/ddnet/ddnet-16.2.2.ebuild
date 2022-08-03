@@ -12,7 +12,7 @@ SRC_URI="https://github.com/ddnet/ddnet/archive/refs/tags/${PV}.tar.gz -> ${P}.t
 
 LICENSE="CC-BY-SA-3.0 OFL-1.1 BSD"
 SLOT="0"
-IUSE="websockets mysql autoupdate +inform-update +videorecorder upnp antibot headless-client +client +server +tools download-gtest steam discord discord-dynamic prefer-bundled-libs vulkan"
+IUSE="websockets mysql autoupdate +inform-update +videorecorder upnp antibot headless-client +client +server +tools download-gtest vulkan"
 KEYWORDS="~amd64"
 
 DEPEND="
@@ -24,6 +24,7 @@ DEPEND="
 		media-libs/libogg
 		media-libs/opus
 		media-libs/opusfile
+		media-libs/pnglite
 		videorecorder? ( media-video/ffmpeg )
 	)
 	download-gtest? ( dev-cpp/gtest )
@@ -38,7 +39,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	websockets? ( net-libs/libwebsockets )
+	websockets? ( net-libs/libwebsockets[client] )
 	server? (
 		upnp? ( net-libs/miniupnpc )
 	)
@@ -48,10 +49,27 @@ BDEPEND="
 	media-sound/wavpack
 	media-libs/libpng
 	media-libs/opusfile
-	media-libs/pnglite
 	media-libs/glew
 	media-libs/x264
 	media-video/ffmpeg
+"
+
+TOOLS="
+	config_retrieve
+	config_store
+	crapnet
+	dilate
+	dummp_map
+	map_convert_07
+	map_diff
+	map_extract
+	map_optimize
+	map_replace_image
+	map_resave
+	packetgen
+	stun
+	unicode_confusables
+	uuid
 "
 
 src_configure(){
@@ -68,10 +86,6 @@ src_configure(){
 		-DSERVER=$(usex server ON OFF)
 		-DTOOLS=$(usex tools ON OFF)
 		-DDOWNLOAD_GTEST=$(usex download-gtest ON OFF)
-		-DSTEAM=$(usex steam ON OFF)
-		-DDISCORD=$(usex discord ON OFF)
-		-DDISCORD_DYNAMIC=$(usex discord-dynamic ON OFF)
-		-DPREFER_BUNDLED_LIBS=$(usex prefer-bundled-libs ON OFF)
 		-DVULKAN=$(usex vulkan ON OFF)
 	)
 	cmake_src_configure
