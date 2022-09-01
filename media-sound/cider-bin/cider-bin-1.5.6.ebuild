@@ -7,7 +7,7 @@ inherit unpacker desktop xdg
 
 DESCRIPTION=""
 HOMEPAGE=""
-SRC_URI="https://github.com/ciderapp/cider-releases/releases/download/v${PV}-beta.435/${PN/-bin}_${PV}-beta.435_amd64.deb"
+SRC_URI="https://github.com/ciderapp/cider-releases/releases/download/v${PV}/${PN/-bin}_${PV}_amd64.deb"
 
 LICENSE=""
 SLOT="0"
