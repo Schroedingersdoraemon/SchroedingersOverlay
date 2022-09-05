@@ -6,18 +6,17 @@
 		<email>zhangzheng.dylan@foxmail.com</email>
 	</maintainer>
 	<use>
-		<flag name="websockets">Enable WebSocket support for server.</flag>
-		<flag name="mysql">Enable MySQL/MariaDB support for server.</flag>
-		<flag name="autoupdate">Enable the autoupdater.</flag>
-		<flag name="inform-update">Inform about available updates.</flag>
-		<flag name="videorecorder">Add video recording support using FFmpeg to the client.</flag>
 		<flag name="antibot">Enable support for a dynamic anticheat library.</flag>
-		<flag name="headless-client">Build the client without graphics.</flag>
-		<flag name="upnp">Enable UPnP support for the server.</flag>
+		<flag name="autoupdate">Enable the autoupdater.</flag>
 		<flag name="client">Enable client compilation.</flag>
+		<flag name="download-gtest">Download and compile GTest. Useful if GTest is not installed and there is no suitable package providing it.</flag>
+		<flag name="headless-client">Build the client without graphics.</flag>
+		<flag name="inform-update">Inform about available updates.</flag>
 		<flag name="server">Enable server compilation.</flag>
 		<flag name="tools">Enable tools compilation.</flag>
-		<flag name="download-gtest">Download and compile GTest. Useful if GTest is not installed and there is no suitable package providing it.</flag>
+		<flag name="upnp">Enable UPnP support for the server.</flag>
+		<flag name="videorecorder">Add video recording support using FFmpeg to the client.</flag>
 		<flag name="vulkan">Enable the vulkan backend.</flag>
+		<flag name="websockets">Enable WebSocket support for server.</flag>
 	</use>
 </pkgmetadata>

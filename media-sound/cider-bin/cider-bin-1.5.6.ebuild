@@ -19,13 +19,29 @@ BDEPEND=""
 
 S="${WORKDIR}"
 
+QA_PREBUILT="
+	opt/Cider/chrome-sandbox
+	opt/Cider/chrome_crashpad_handler
+	opt/Cider/cider
+	opt/Cider/libEGL.so
+	opt/Cider/libffmpeg.so
+	opt/Cider/libGLESv2.so
+	opt/Cider/libvk_swiftshader.so
+	opt/Cider/libvulkan.so.1
+"
+
 src_install(){
 	insinto /opt
 	doins -r opt/Cider
-	fperms +x /opt/Cider/{chrome-sandbox,chrome_crashpad_handler,cider,libEGL.so,libffmpeg.so,libGLESv2.so,libvk_swiftshader.so,libvulkan.so.1}
-	fperms +x /opt/Cider/swiftshader/{libEGL.so,libGLESv2.so}
-	domenu usr/share/applications/cider.desktop
-	for i in 16 32 48 64 128 256 512; do
-		doicon -s $i usr/share/icons/hicolor/$i\x$i/apps/cider.png
+
+	insinto /usr/share
+	doins -r usr/share/icons
+
+	local f
+	for f in ${QA_PREBUILT}; do
+		fperms +x "/${f}"
 	done
+	domenu usr/share/applications/cider.desktop
+
+	dosym ../../opt/Cider/${PN/-bin} /usr/bin/${PN/-bin}
 }
