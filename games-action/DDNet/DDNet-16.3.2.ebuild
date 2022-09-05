@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop xdg
 
 DESCRIPTION="DDraceNetwork, a cooperative racing mod of Teeworlds"
 HOMEPAGE="https://ddnet.tw/ https://github.com/ddnet/ddnet"
@@ -44,11 +44,7 @@ src_install(){
 	insinto /opt
 	doins -r ${MY_PN}
 
-	make_desktop_entry \
-		/opt/${MY_PN}/${PN} \   # exec
-		${PN} \   # name
-		/opt/${MY_PN}/data/gui_logo.png \   # icon
-		Game   # category
+	make_desktop_entry "/opt/${MY_PN}/DDNet" ${PN} "/opt/${MY_PN}/data/gui_logo.png" "Game"
 
 	local f
 	for f in ${QA_PREBUILT}; do
