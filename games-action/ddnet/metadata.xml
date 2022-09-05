@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<name>Schroedinger</name>
-		<email>dylanturing@protonmail.com</email>
+		<name>Zhang Zheng</name>
+		<email>zhangzheng.dylan@foxmail.com</email>
 	</maintainer>
 	<use>
 		<flag name="websockets">Enable WebSocket support for server.</flag>
